@@ -27,3 +27,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 `npm run build`
 
 `docker build . -t gl-ui:latest`
+
+## Deploy with Kubernetes
+
+`kubectl apply -f k8s/deployment.yml`
+
+`kubectl apply -f k8s/service.yml`

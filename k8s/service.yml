@@ -4,10 +4,10 @@ metadata:
   name: gl-ui-service
   labels:
     app: gl-ui
-  spec:
-    type: ClusterIp
-    ports:
-    - port: 80
-      protocol: TCP
-    selector:
-      app: gl-ui
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: gl-ui
