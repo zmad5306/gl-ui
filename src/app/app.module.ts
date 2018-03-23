@@ -3,31 +3,36 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule, MatToolbarModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginInterceptorService } from './login/login-interceptor.service';
 import { LoginService } from './login/login.service';
-import { ListComponent } from './list/list.component';
-import { ListService } from './list/list.service';
+import { ListsComponent } from './lists/lists.component';
+import { ListsService } from './lists/lists.service';
 
 const appRoutes: Routes = [
-  { path: 'list', component: ListComponent },
+  { path: 'lists', component: ListsComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: '/list', pathMatch: 'full' }
+  { path: '**', redirectTo: '/lists', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ListComponent
+    ListsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatToolbarModule,
   ],
   providers: [
     {
@@ -36,7 +41,7 @@ const appRoutes: Routes = [
       multi: true
     },
     LoginService,
-    ListService,
+    ListsService,
   ],
   bootstrap: [AppComponent]
 })
