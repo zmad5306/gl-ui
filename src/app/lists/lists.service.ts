@@ -16,7 +16,7 @@ export class ListsService {
   }
 
   getList(listId: string): Observable<List> {
-    return this.http.get('/api/list/${listId}').map((data) => data as List);
+    return this.http.get(`/api/list/${listId}`).map((data) => data as List);
   }
 
   saveList(list: List): Observable<List> {
@@ -24,11 +24,11 @@ export class ListsService {
   }
 
   updateList(list: List): Observable<void> {
-    return this.http.put('/api/list/${list.listId}', list).switchMap(() => Observable.empty<void>());
+    return this.http.put(`/api/list/${list.listId}`, list).switchMap(() => Observable.empty<void>());
   }
 
   deleteList(list: List): Observable<void> {
-    return this.http.delete('/api/list/${list.listId}').switchMap(() => Observable.empty<void>());
+    return this.http.delete(`/api/list/${list.listId}`).switchMap(() => Observable.empty<void>());
   }
 
 }

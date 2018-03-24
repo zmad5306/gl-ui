@@ -12,9 +12,12 @@ import { LoginInterceptorService } from './login/login-interceptor.service';
 import { LoginService } from './login/login.service';
 import { ListsComponent } from './lists/lists.component';
 import { ListsService } from './lists/lists.service';
+import { ItemsComponent } from './items/items.component';
+import { ItemService } from './items/item.service';
 
 const appRoutes: Routes = [
   { path: 'lists', component: ListsComponent },
+  { path: 'lists/:listId/items', component: ItemsComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/lists', pathMatch: 'full' }
 ];
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     ListsComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,7 @@ const appRoutes: Routes = [
     },
     LoginService,
     ListsService,
+    ItemService,
   ],
   bootstrap: [AppComponent]
 })
