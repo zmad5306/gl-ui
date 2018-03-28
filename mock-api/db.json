@@ -1,0 +1,29 @@
+{
+  "list": [
+    {
+      "listId": "5ab4da845f15030001942891",
+      "name": "my second list",
+      "username": "sue",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/list/5ab4da845f15030001942891",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        },
+        {
+          "rel": "self",
+          "href": "/api/item/5ab4da845f15030001942891",
+          "hreflang": null,
+          "media": null,
+          "title": "items",
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    }
+  ]
+}
