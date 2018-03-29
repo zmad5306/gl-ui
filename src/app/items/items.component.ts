@@ -22,7 +22,7 @@ export class ItemsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
-        this.list = list;
+        this.list = list[0];
       });
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
         this.items = items;

@@ -25,5 +25,144 @@
         }
       ]
     }
+  ],
+  "item": [
+    {
+      "itemId": "5ab4e0a352faff0001d45094",
+      "listId": "5ab4da845f15030001942891",
+      "departmentId": "5ab4cf0b52faff0001f95039",
+      "username": "sue",
+      "active": true,
+      "quantity": 3,
+      "name": "pizza",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/item/5ab4e0a352faff0001d45094",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        },
+        {
+          "rel": "self",
+          "href": "/api/list/5ab4da845f15030001942891",
+          "hreflang": null,
+          "media": null,
+          "title": "list",
+          "type": null,
+          "deprecation": null
+        },
+        {
+          "rel": "self",
+          "href": "/api/dept/5ab4cf0b52faff0001f95039",
+          "hreflang": null,
+          "media": null,
+          "title": "dept",
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    },
+    {
+      "itemId": "5ab4e0b052faff0001d45095",
+      "listId": "5ab4da845f15030001942891",
+      "departmentId": "5ab4cf0b52faff0001f95039",
+      "username": "sue",
+      "active": true,
+      "quantity": 8,
+      "name": "pizza 2",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/item/5ab4e0b052faff0001d45095",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        },
+        {
+          "rel": "self",
+          "href": "/api/list/5ab4da845f15030001942891",
+          "hreflang": null,
+          "media": null,
+          "title": "list",
+          "type": null,
+          "deprecation": null
+        },
+        {
+          "rel": "self",
+          "href": "/api/dept/5ab4cf0b52faff0001f95039",
+          "hreflang": null,
+          "media": null,
+          "title": "dept",
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    }],
+  "dept": [
+    {
+      "departmentId": "5ab4cf0b52faff0001f95039",
+      "name": "Frozen",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/dept/5ab4cf0b52faff0001f95039",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    },
+    {
+      "departmentId": "5ab4cf0b52faff0001f9503a",
+      "name": "Dairy",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/dept/5ab4cf0b52faff0001f9503a",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    },
+    {
+      "departmentId": "5ab4cf0b52faff0001f9503b",
+      "name": "Bread",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/dept/5ab4cf0b52faff0001f9503b",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    },
+    {
+      "departmentId": "5ab4cf0b52faff0001f9503c",
+      "name": "Canned",
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://minikube:31726/api/dept/5ab4cf0b52faff0001f9503c",
+          "hreflang": null,
+          "media": null,
+          "title": null,
+          "type": null,
+          "deprecation": null
+        }
+      ]
+    }
   ]
 }

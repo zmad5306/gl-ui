@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule, MatToolbarModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -34,9 +33,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
