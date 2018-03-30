@@ -1,6 +1,4 @@
-@import "assets/fonts.css";
-
-body {
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
+header.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }

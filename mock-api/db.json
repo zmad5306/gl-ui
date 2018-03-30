@@ -1,6 +1,7 @@
 {
   "list": [
     {
+      "id": 0,
       "listId": "5ab4da845f15030001942891",
       "name": "my second list",
       "username": "sue",
@@ -24,6 +25,14 @@
           "deprecation": null
         }
       ]
+    },
+    {
+      "name": "Tom",
+      "id": 1
+    },
+    {
+      "name": "",
+      "id": 2
     }
   ],
   "item": [
@@ -102,7 +111,8 @@
           "deprecation": null
         }
       ]
-    }],
+    }
+  ],
   "dept": [
     {
       "departmentId": "5ab4cf0b52faff0001f95039",
