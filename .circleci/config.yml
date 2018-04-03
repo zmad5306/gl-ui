@@ -43,14 +43,18 @@ jobs:
           path: ~/repo/coverage
           destination: coverage
 
+      # run build
+      - run: yarn build
+
+      # package zip
+      - run: yarn package
+      
+      - store_artifacts:
+          path: ~/repo/dist/dist.zip
+          destination: dist.zip
+
       #run lint
       - run: yarn lint
-
-      #build docker
-      - run: docker build . -t zmad5306/gl-ui:latest
-
-      #push docker
-      - run: docker push zmad5306/gl-ui:latest
 
   deploy:
     machine:
