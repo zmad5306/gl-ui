@@ -1,11 +1,17 @@
+import { Router } from '@angular/router';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { LoginInterceptorService } from './login-interceptor.service';
 
+const routerStub = {} as Router;
+
 describe('LoginInterceptorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoginInterceptorService]
+      providers: [
+        LoginInterceptorService,
+        { provide: Router, useValue: routerStub },
+      ]
     });
   });
 
