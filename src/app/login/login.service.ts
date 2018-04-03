@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 const headers = {
   headers: new HttpHeaders()
     .set('Content-Type', 'application/x-www-form-urlencoded')
-}
+};
 
 @Injectable()
 export class LoginService {
@@ -20,7 +20,7 @@ export class LoginService {
     return this.http.post('/api/login',
           body.toString(),
           headers
-        )
+        );
   }
 
 }
