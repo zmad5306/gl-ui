@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["build", "-t", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-ui", "."]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/oceanic-isotope-199421/github-zmad5306-gl-ui"]
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment/test-gl-ui
+  - gl-ui-container=gcr.io/oceanic-isotope-199421/github-zmad5306-gl-ui:latest
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-f'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=grocery-list'
