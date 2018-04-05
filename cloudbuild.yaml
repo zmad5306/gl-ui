@@ -8,7 +8,7 @@ steps:
   - set
   - image
   - deployment/gl-ui-deployment	
-  - gl-ui-container=gcr.io/oceanic-isotope-199421/github-zmad5306-gl-ui:latest
+  - gl-ui=gcr.io/oceanic-isotope-199421/github-zmad5306-gl-ui:latest
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-f'
   - 'CLOUDSDK_CONTAINER_CLUSTER=grocery-list'
