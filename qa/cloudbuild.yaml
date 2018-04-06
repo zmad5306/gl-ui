@@ -43,6 +43,8 @@ steps:
       - name: 'kube'
         path: /kube
 
+   # Clone the https://github.com/zmad5306/gl-infrastructure-qa.git repo.
+  # deployment manifests.
   - name: 'gcr.io/hightowerlabs/hub'
     env:
       - 'HUB_CONFIG=/config/hub'
@@ -111,35 +113,28 @@ steps:
         hub config --global hub.protocol https
         hub config --global user.email "$${ACTIVE_ACCOUNT}"
         hub config --global user.name "Google Container Builder"
-
+        
         hub clone "https://github.com/zmad5306/gl-infrastructure-production.git"
         
-        # Extract the container image from the qa ui deployment configuration file.
-        CONTAINER_IMAGE=$(kubectl apply --dry-run \
-           -f gl-infrastructure-qa/kubernetes/deployments/gl-ui-deployment.yaml \
-           -o jsonpath='{.spec.template.spec.containers[?(@.name == "gl-ui")].image}')
-
+        cd gl-infrastructure-production
+        
+        git checkout -b update-deployment-${BUILD_ID}
+        
         cat <<EOF > patch.yaml
         spec:
           template:
             spec:
               containers:
                 - name: gl-ui
-                  image: $${CONTAINER_IMAGE}
+                  image: gcr.io/${PROJECT_ID}/github-zmad5306-gl-ui:${TAG_NAME}
         EOF
 
         kubectl patch --local -o yaml \
-          -f gl-infrastructure-production/kubernetes/deployments/gl-ui-deployment.yaml \
+          -f kubernetes/deployments/gl-ui-deployment.yaml \
           -p "$(cat patch.yaml)" \
           > gl-ui-deployment.yaml
-
-        mv gl-ui-deployment.yaml gl-infrastructure-production/kubernetes/deployments/gl-ui-deployment.yaml
-
-        # Change to the gl-infrastructure-production directory
-        # commit the local changes, then issue a pull request.
-        cd gl-infrastructure-production
-
-        git checkout -b update-deployment-${BUILD_ID}
+        
+        mv gl-ui-deployment.yaml kubernetes/deployments/gl-ui-deployment.yaml
 
         hub add kubernetes/deployments/gl-ui-deployment.yaml
  
