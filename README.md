@@ -31,5 +31,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 `docker build . -t zmad5306/gl-ui:latest`
 
 `docker push zmad5306/gl-ui:latest`
-
-## CI With Google Container Registry
