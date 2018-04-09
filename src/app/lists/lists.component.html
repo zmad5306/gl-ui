@@ -1,25 +1,17 @@
-<section class="list card border-primary mb-3" style="max-width: 20rem;" *ngFor="let list of lists">
-  <div class="card-header" [routerLink]="[list.listId, 'items']">
-    <h2>{{list.name}}</h2>
+<h2>Lists</h2>
+<div class="list-group">
+  <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start"
+     *ngFor="let list of lists">{{list.name}}</a>
+</div>
+<form class="my-2" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
+  <h3>Add a list</h3>
+  <label class="control-label" for="name">List Name</label>
+  <div class="row ">
+    <div class="col-8">
+      <input [formControl]="createListForm.controls.name" type="text" id="name" class="form-control">
+    </div>
+    <div class="col-4">
+      <button class="btn btn-secondary" type="submit">Add</button>
+    </div>
   </div>
-  <div class="listInfo card-body">
-    <p class="card-text">Items Active / Not Active</p>
-    <p class="card-text">Department Types Contained within</p>
-    <button class="btn btn-primary">Edit List Name</button>
-    <button class="btn btn-danger">Delete List</button>
-  </div>
-</section>
-<section class="list card border-primary mb-3" style="max-width: 20rem;">
-  <div class="card-header">
-    <h2>Add a list</h2>
-  </div>
-  <div class="listInfo card-body">
-    <form [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
-      <div class="form-group">
-        <label class="control-label" for="name">List Name</label>
-        <input [formControl]="createListForm.controls.name" type="text" id="name" class="form-control">
-      </div>
-      <button type="submit">Add</button>
-    </form>
-  </div>
-</section>
+</form>

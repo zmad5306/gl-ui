@@ -24,6 +24,7 @@ export class ListsComponent implements OnInit {
       name: ['', []],
     });
   }
+
   commit() {
     this.listsService.saveList(this.createListForm.value).subscribe(data => console.log(data));
     console.log(this.createListForm.value);
