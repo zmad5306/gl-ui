@@ -5,3 +5,7 @@ header.container-fluid {
 main {
   min-height: 100%;
 }
+.invalid-feedback {
+  display: block;
+  font-size: 90%;
+}
