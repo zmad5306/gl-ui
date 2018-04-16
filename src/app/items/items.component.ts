@@ -40,9 +40,11 @@ export class ItemsComponent implements OnInit {
     });
     this.departmentService.getDepartments().subscribe((departments: Array<Department>) => {
       this.departments = departments;
+      console.log(this.departments);
     });
     this.createItemForm = this.formBuilder.group({
-      name: ['', []],
+      name: '',
+      departmentsList: ''
     });
   }
 }

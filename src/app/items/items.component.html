@@ -1,5 +1,5 @@
 <h3>{{list?.name}} <button class="btn btn-sm btn-link float-right">Delete List</button></h3>
-<div class="list-group">
+<div class="list-group mb-3">
   <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex justify-content-start">
       <p>{{item.name}}</p>
@@ -25,15 +25,26 @@
       </div>
     </div>
   </div>
-  <div class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <form [formGroup]="createItemForm">
-        <input type="text" placeholder="Add Item" id="name" name="name" class="itemInput">
-        <select required>
-          <option value="" disabled selected>Department</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Add</button>
-      </form>
+</div>
+<form [formGroup]="createItemForm">
+  <h3>Add an item</h3>
+  <div class="row mb-2">
+    <div class="col-6">
+      <label for="name">Item</label>
+      <input formControlName="name" type="text" id="name" name="name" class="itemInput form-control">
+    </div>
+    <div class="col-6">
+      <label for="departmentsList">Department</label>
+      <select formControlName="departmentsList" id="departmentsList" name="departmentsList" class="form-control">
+        <option *ngFor="let department of departments" [ngValue]="state">
+          {{department?.name}}
+        </option>
+      </select>
     </div>
   </div>
-</div>
+  <div class="row justify-content-end">
+    <div class="col">
+      <button type="submit" class="btn btn-primary float-right">Add</button>
+    </div>
+  </div>
+</form>
