@@ -13,6 +13,7 @@ import {ListsComponent} from './lists/lists.component';
 import {ListsService} from './lists/lists.service';
 import {ItemsComponent} from './items/items.component';
 import {ItemService} from './items/item.service';
+import {DepartmentService} from "./shared/department.service";
 
 const appRoutes: Routes = [
   {path: 'lists', component: ListsComponent},
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     LoginService,
     ListsService,
     ItemService,
+    DepartmentService
   ],
   bootstrap: [AppComponent]
 })
