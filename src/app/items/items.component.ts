@@ -44,7 +44,8 @@ export class ItemsComponent implements OnInit {
     });
     this.createItemForm = this.formBuilder.group({
       name: '',
-      departmentsList: ''
+      departmentsList: '',
+      quantity: ''
     });
   }
 }

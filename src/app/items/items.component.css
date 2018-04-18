@@ -1,10 +1,19 @@
-.itemInput {
-  text-indent: 10px;
+.listName{
+  text-transform: capitalize;
+}
+.itemCount{
+  line-height: 29px;
+  padding: 0 12px;
+  margin-right: 5px;
+  font-size: 13px;
 }
 
-p {
+.itemName {
   line-height: 30px;
   margin-bottom: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: capitalize;
 }
 
 input[type="checkbox"] {
@@ -38,3 +47,4 @@ select:required:invalid {
 option[value=""][disabled] {
   display: none;
 }
+

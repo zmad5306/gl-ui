@@ -1,8 +1,9 @@
-<h3>{{list?.name}} <button class="btn btn-sm btn-link float-right">Delete List</button></h3>
+<h3 class="listName">{{list?.name}} <button class="btn btn-sm btn-link float-right">Delete List</button></h3>
 <div class="list-group mb-3">
   <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex justify-content-start">
-      <p>{{item.name}}</p>
+      <span class="badge badge-pill badge-primary itemCount">{{item.quantity}}</span>
+      <p class="itemName">{{item.name}}</p>
       <div class="ml-auto">
         <button class="btn btn-small btn-primary small-btn">
           <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" viewBox="0 0 24 24" width="24">
@@ -29,22 +30,28 @@
 <form [formGroup]="createItemForm">
   <h3>Add an item</h3>
   <div class="row mb-2">
-    <div class="col-6">
-      <label for="name">Item</label>
+    <div class="col-12">
+      <label for="name" class="font-weight-bold">Item</label>
       <input formControlName="name" type="text" id="name" name="name" class="itemInput form-control">
     </div>
-    <div class="col-6">
-      <label for="departmentsList">Department</label>
+  </div>
+  <div class="row mb-2">
+    <div class="col-8">
+      <label for="departmentsList" class="font-weight-bold">Department</label>
       <select formControlName="departmentsList" id="departmentsList" name="departmentsList" class="form-control">
         <option *ngFor="let department of departments" [ngValue]="state">
           {{department?.name}}
         </option>
       </select>
     </div>
+    <div class="col-4">
+      <label for="quantity" class="font-weight-bold">Quantity</label>
+      <input formControlName="quantity" type="number" id="quantity" name="quantity" class="form-control">
+    </div>
   </div>
   <div class="row justify-content-end">
     <div class="col">
-      <button type="submit" class="btn btn-primary float-right">Add</button>
+      <button type="submit" class="btn btn-secondary float-right">Add</button>
     </div>
   </div>
 </form>
