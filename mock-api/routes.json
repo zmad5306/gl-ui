@@ -1,5 +1,6 @@
 {
   "/api/*": "/$1",
   "/list/:listId": "/list?listId=:listId",
-  "/item/:listId": "/item?listId=:listId"
+  "/item/:listId": "/item?listId=:listId",
+  "/dept/:departmentId": "/dept?departmentId=:departmentId"
 }

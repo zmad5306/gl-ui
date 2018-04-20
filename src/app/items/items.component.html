@@ -1,7 +1,7 @@
 <h3 class="listName">{{list?.name}} <button class="btn btn-sm btn-link float-right">Delete List</button></h3>
 <div class="list-group mb-3">
-  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex justify-content-start">
+  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start pb-0">
+    <div class="d-flex justify-content-start mb-2 items">
       <span class="badge badge-pill badge-primary itemCount">{{item.quantity}}</span>
       <p class="itemName">{{item.name}}</p>
       <div class="ml-auto">
@@ -25,9 +25,10 @@
         </button>
       </div>
     </div>
+    <div class="text-center departmentBadge" ngClass="{{item | department | lowercase}}"><span class="deptText">{{item | department}}</span></div>
   </div>
 </div>
-<form [formGroup]="createItemForm">
+<form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()">
   <h3>Add an item</h3>
   <div class="row mb-2">
     <div class="col-12">
@@ -37,9 +38,9 @@
   </div>
   <div class="row mb-2">
     <div class="col-8">
-      <label for="departmentsList" class="font-weight-bold">Department</label>
-      <select formControlName="departmentsList" id="departmentsList" name="departmentsList" class="form-control">
-        <option *ngFor="let department of departments" [ngValue]="state">
+      <label for="departmentId" class="font-weight-bold">Department</label>
+      <select formControlName="departmentId" id="departmentId" name="departmentId" class="form-control">
+        <option *ngFor="let department of departments" [ngValue]="department.departmentId">
           {{department?.name}}
         </option>
       </select>
