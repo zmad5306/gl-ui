@@ -1,7 +1,6 @@
 <h2>Lists</h2>
-<div class="list-group">
-  <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start"
-     *ngFor="let list of lists">{{list.name}}</a>
+<div class="list-group mb-3">
+  <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let list of lists">{{list.name}}</a>
 </div>
 <form class="my-2" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
   <h3>Add a list</h3>

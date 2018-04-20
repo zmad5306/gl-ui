@@ -1,0 +1,75 @@
+.items{
+  padding: .73rem .73rem 0 .73rem;
+}
+.departmentBadge{
+  font-weight: bold;
+}
+.frozen{
+  background-color: rgb(195,203,217);
+}
+.dairy{
+  background-color: rgb(240,237,229);
+}
+.bread{
+  background-color: rgb(243,213,165);
+}
+.canned{
+  background-color: rgb(156,150,136);
+}
+.canned .deptText{
+  color: white;
+  opacity: 1;
+}
+.deptText {
+  opacity: .70;
+}
+.listName{
+  text-transform: capitalize;
+}
+.itemCount{
+  line-height: 29px;
+  padding: 0 12px;
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.itemName {
+  line-height: 30px;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+  align-items: center;
+}
+
+.small-btn {
+  height: 30px;
+  width: 30px;
+  padding: 2px;
+}
+
+.list-group-item {
+  padding: 0;
+}
+
+.list-group-item-action:hover, .list-group-item-action:focus {
+  background-color: white;
+}
+
+.list-group-item-action:active {
+  background-color: white;
+}
+
+select:required:invalid {
+  color: gray;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
