@@ -28,31 +28,33 @@
     <div class="text-center departmentBadge" ngClass="{{item | department | lowercase}}"><span class="deptText">{{item | department}}</span></div>
   </div>
 </div>
-<form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()">
-  <h3>Add an item</h3>
-  <div class="row mb-2">
-    <div class="col-12">
-      <label for="name" class="font-weight-bold">Item</label>
-      <input formControlName="name" type="text" id="name" name="name" class="itemInput form-control">
+<form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()" class="fixed-bottom container">
+  <hr>
+  <div class="row">
+    <div class="col-10">
+      <div class="row mb-2">
+        <div class="col-12">
+          <label for="name" class="font-weight-bold">Item</label>
+          <input formControlName="name" type="text" id="name" name="name" class="itemInput form-control">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-8">
+          <label for="departmentId" class="font-weight-bold">Department</label>
+          <select formControlName="departmentId" id="departmentId" name="departmentId" class="form-control">
+            <option *ngFor="let department of departments" [ngValue]="department.departmentId">
+              {{department?.name}}
+            </option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="quantity" class="font-weight-bold">Quantity</label>
+          <input formControlName="quantity" type="number" id="quantity" name="quantity" class="form-control">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row mb-2">
-    <div class="col-8">
-      <label for="departmentId" class="font-weight-bold">Department</label>
-      <select formControlName="departmentId" id="departmentId" name="departmentId" class="form-control">
-        <option *ngFor="let department of departments" [ngValue]="department.departmentId">
-          {{department?.name}}
-        </option>
-      </select>
-    </div>
-    <div class="col-4">
-      <label for="quantity" class="font-weight-bold">Quantity</label>
-      <input formControlName="quantity" type="number" id="quantity" name="quantity" class="form-control">
-    </div>
-  </div>
-  <div class="row justify-content-end">
-    <div class="col">
-      <button type="submit" class="btn btn-secondary float-right">Add</button>
+    <div class="col-2">
+      <button type="submit" class="btn btn-secondary itemAddButton"><span class="itemAddButtonText">Add</span></button>
     </div>
   </div>
 </form>

@@ -55,6 +55,7 @@ export class ItemsComponent implements OnInit {
 
   commit(){
     this.createItemForm.value.active = true;
+    this.createItemForm.value.listId = this.listId;
     this.itemService.saveItem(this.createItemForm.value).subscribe(data => console.log(data));
     this.createItemForm.reset();
   }
