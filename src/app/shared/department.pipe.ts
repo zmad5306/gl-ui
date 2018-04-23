@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
-import {DepartmentService} from "../shared/department.service";
-import {Department} from "../shared/department";
-import {Item} from "../shared/item";
+import {DepartmentService} from "./department.service";
+import {Department} from "./department";
+import {Item} from "./item";
 
 @Pipe({
   name: 'department',
