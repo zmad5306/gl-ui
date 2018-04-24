@@ -1,16 +1,16 @@
 <h2>Lists</h2>
 <div class="list-group mb-3">
-  <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let list of lists">{{list.name}}</a>
+  <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start text-capitalize font-weight-bold" *ngFor="let list of lists">{{list.name}}</a>
 </div>
-<form class="my-2" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
-  <h3>Add a list</h3>
-  <label class="control-label" for="name">List Name</label>
-  <div class="row ">
-    <div class="col-8">
+<form  class="fixed-bottom container" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
+  <hr>
+  <label class="control-label font-weight-bold" for="name">List Name</label>
+  <div class="row mb-2">
+    <div class="col-10">
       <input [formControl]="createListForm.controls.name" type="text" id="name" class="form-control">
     </div>
-    <div class="col-4">
-      <button class="btn btn-secondary" type="submit">Add</button>
+    <div class="col-2 listAddButton">
+      <button class="btn btn-secondary float-right" type="submit">Add</button>
     </div>
   </div>
 </form>

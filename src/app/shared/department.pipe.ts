@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
-import {DepartmentService} from "./department.service";
-import {Department} from "./department";
-import {Item} from "./item";
+import {DepartmentService} from './department.service';
+import {Department} from './department';
+import {Item} from './item';
 
 @Pipe({
   name: 'department',
@@ -11,7 +11,7 @@ import {Item} from "./item";
 export class DepartmentPipe implements PipeTransform {
 
   departmentValue: Array<Department>;
-  callCount: number = 0;
+  callCount = 0;
 
   constructor(
     private departmentService: DepartmentService,
@@ -25,7 +25,7 @@ export class DepartmentPipe implements PipeTransform {
         this.departmentValue = data;
         this._ref.markForCheck();
       });
-    } else if(this.departmentValue && this.callCount === 1) {
+    } else if (this.departmentValue && this.callCount === 1) {
       return this.departmentValue[0].name;
     }
   }
