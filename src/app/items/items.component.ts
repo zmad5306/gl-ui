@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ItemService} from './item.service';
 import {Item} from '../shared/item';
 import {ListsService} from '../lists/lists.service';
 import {List} from '../shared/list';
-import {DepartmentService} from "../shared/department.service";
-import {Department} from "../shared/department";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {DepartmentService} from '../shared/department.service';
+import {Department} from '../shared/department';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -23,6 +23,7 @@ export class ItemsComponent implements OnInit {
   createItemForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private itemService: ItemService,
               private listsService: ListsService,
               private departmentService: DepartmentService,
@@ -30,7 +31,7 @@ export class ItemsComponent implements OnInit {
               private _ref: ChangeDetectorRef) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
@@ -53,8 +54,33 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-  commit(){
+  refreshData(): void {
+    this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
+      this.items = items;
+      this._ref.markForCheck();
+    });
+  }
+
+  deleteList(): void {
+    this.listsService.deleteList(this.list).subscribe(data => console.log(data));
+    this.router.navigate(['/lists']);
+  }
+
+  markInActive(): void {
+    console.log('working');
+  }
+
+  deleteItem(item: Item): void {
+    this.itemService.deleteItem(item.itemId).subscribe(data => {
+      console.log(data);
+      this.refreshData();
+    });
+    console.log('working');
+  }
+
+  commit(): void {
     this.createItemForm.value.active = true;
+    this.createItemForm.value.listId = this.listId;
     this.itemService.saveItem(this.createItemForm.value).subscribe(data => console.log(data));
     this.createItemForm.reset();
   }

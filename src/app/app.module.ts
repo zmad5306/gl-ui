@@ -13,8 +13,8 @@ import {ListsComponent} from './lists/lists.component';
 import {ListsService} from './lists/lists.service';
 import {ItemsComponent} from './items/items.component';
 import {ItemService} from './items/item.service';
-import {DepartmentService} from "./shared/department.service";
-import { DepartmentPipe } from './items/department.pipe';
+import {DepartmentService} from './shared/department.service';
+import { DepartmentPipe } from './shared/department.pipe';
 
 const appRoutes: Routes = [
   {path: 'lists', component: ListsComponent},

@@ -1,6 +1,6 @@
-.buttonPlus {
-  font-size: 1.75em;
-}
 .list {
   max-width: 20rem;
+}
+.listAddButton {
+  padding-left: 5px;
 }

@@ -7,7 +7,7 @@ class Links {
   public title?: string,
   public type?: string,
   public deprecation?: string
-  ){}
+  ) {}
 }
 
 export class Item {
