@@ -1,4 +1,8 @@
-<h3 class="listName">{{list?.name}} <button class="btn btn-sm btn-link float-right" (click)="deleteList()">Delete List</button></h3>
+<div class="row">
+  <div class="col">
+    <h3 class="listName">{{list?.name}} <button class="btn btn-sm btn-link float-right" (click)="deleteList()">Delete List</button></h3>
+  </div>
+</div>
 <div class="list-group mb-3">
   <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start pb-0">
     <div class="d-flex justify-content-start mb-2 items">
@@ -28,7 +32,8 @@
     <div class="text-center departmentBadge" ngClass="{{item | department | lowercase}}"><span class="deptText">{{item | department}}</span></div>
   </div>
 </div>
-<form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()" class="fixed-bottom container">
+<div class="push"></div>
+<form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()" class="fixed-bottom container createItemForm">
   <hr>
   <div class="row">
     <div class="col-10">
@@ -53,7 +58,7 @@
         </div>
       </div>
     </div>
-    <div class="col-2">
+    <div class="col-2 itemAddButtonCol">
       <button type="submit" class="btn btn-primary itemAddButton"><span class="itemAddButtonText">&#43;</span></button>
     </div>
   </div>
