@@ -32,6 +32,7 @@
     <div class="text-center departmentBadge" ngClass="{{item | department | lowercase}}"><span class="deptText">{{item | department}}</span></div>
   </div>
 </div>
+<div class="push"></div>
 <form [formGroup]="createItemForm" (ngSubmit)="createItemForm.valid && commit()" class="fixed-bottom container createItemForm">
   <hr>
   <div class="row">
