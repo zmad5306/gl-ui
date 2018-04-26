@@ -35,14 +35,11 @@ export class ItemsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
-        console.log(`list data`, list);
         this.list = list;
-        console.log(`list`, this.list);
         this._ref.markForCheck();
       });
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
         this.items = items;
-        console.log(`items`, this.items);
         this._ref.markForCheck();
       });
     });
@@ -75,7 +72,6 @@ export class ItemsComponent implements OnInit {
 
   deleteItem(item: Item): void {
     this.itemService.deleteItem(item.itemId).subscribe(data => {
-      console.log(data);
       this.refreshData();
     });
     console.log('working');
