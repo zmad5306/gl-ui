@@ -23,11 +23,13 @@ export class DepartmentPipe implements PipeTransform {
     if (!this.departmentValue && this.callCount === 0) {
       this.callCount++;
       this.departmentService.getDepartment(item.links.find(link => link.title === 'dept').href).subscribe(data => {
+        console.log(`dept data`, data);
         this.departmentValue = data;
         this._ref.markForCheck();
       });
     } else if (this.departmentValue && this.callCount === 1) {
       console.log(`pipe is getting down here`);
+      console.log(this.departmentValue[0].name);
       return this.departmentValue[0].name;
     }
   }
