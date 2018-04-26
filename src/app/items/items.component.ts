@@ -35,6 +35,7 @@ export class ItemsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
+        console.log(`list data`, list);
         this.list = list[0];
         console.log(`list`, this.list);
         this._ref.markForCheck();
