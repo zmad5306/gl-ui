@@ -36,10 +36,12 @@ export class ItemsComponent implements OnInit {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
         this.list = list[0];
+        console.log(`list`, this.list);
         this._ref.markForCheck();
       });
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
         this.items = items;
+        console.log(`items`, this.items);
         this._ref.markForCheck();
       });
     });
