@@ -1,24 +1,8 @@
 .items{
   padding: .73rem .73rem 0 .73rem;
 }
-.departmentBadge{
+.departmentBadge {
   font-weight: bold;
-}
-.frozen{
-  background-color: rgb(195,203,217);
-}
-.dairy{
-  background-color: rgb(240,237,229);
-}
-.bread{
-  background-color: rgb(243,213,165);
-}
-.canned{
-  background-color: rgb(156,150,136);
-}
-.canned .deptText{
-  color: white;
-  opacity: 1;
 }
 .deptText {
   opacity: .70;

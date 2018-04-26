@@ -19,7 +19,6 @@ export class DepartmentPipe implements PipeTransform {
   ) {}
 
   transform(item: Item): string {
-    console.log(`item arg`, item);
     if (!this.departmentValue && this.callCount === 0) {
       this.callCount++;
       this.departmentService.getDepartment(item.links.find(link => link.title === 'dept').href).subscribe(data => {
