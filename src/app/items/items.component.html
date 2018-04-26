@@ -6,8 +6,8 @@
 <div class="list-group mb-3">
   <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start pb-0">
     <div class="d-flex justify-content-start mb-2 items">
-      <span class="badge badge-pill badge-primary itemCount">{{item.quantity}}</span>
-      <p class="itemName">{{item.name}}</p>
+      <span class="badge badge-pill badge-primary itemCount">{{item?.quantity}}</span>
+      <p class="itemName">{{item?.name}}</p>
       <div class="ml-auto">
         <button class="btn btn-small btn-primary small-btn" (click)="markInActive(item)">
           <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" viewBox="0 0 24 24" width="24">
