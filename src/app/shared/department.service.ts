@@ -14,7 +14,7 @@ export class DepartmentService {
   getDepartments(): Observable<Array<Department>> {
     return this.http.get(`/api/dept/`).map(data => data as Array<Department>);
   }
-  getDepartment(departmentUri): Observable<Array<Department>> {
-    return this.http.get(departmentUri).map(data => data as Array<Department>);
+  getDepartment(departmentUri): Observable<Department> {
+    return this.http.get(departmentUri).map(data => data as Department);
   }
 }
