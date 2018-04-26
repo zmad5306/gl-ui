@@ -2,7 +2,7 @@
 <div class="list-group mb-3">
   <a [routerLink]="[list.listId, 'items']" class="list-group-item list-group-item-action flex-column align-items-start text-capitalize font-weight-bold" *ngFor="let list of lists">{{list.name}}</a>
 </div>
-<form  class="fixed-bottom container" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
+<form  class="fixed-bottom container createListForm" [formGroup]="createListForm" (ngSubmit)="createListForm.valid && commit()">
   <hr>
   <label class="control-label font-weight-bold" for="name">List Name</label>
   <div class="row mb-2">
