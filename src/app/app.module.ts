@@ -15,6 +15,7 @@ import {ItemsComponent} from './items/items.component';
 import {ItemService} from './items/item.service';
 import {DepartmentService} from './shared/department.service';
 import { DepartmentPipe } from './shared/department.pipe';
+import {WithCredentialsInterceptor} from './shared/with-credentials-interceptor.service';
 
 const appRoutes: Routes = [
   {path: 'lists', component: ListsComponent},
@@ -42,6 +43,11 @@ const appRoutes: Routes = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoginInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: WithCredentialsInterceptor,
       multi: true
     },
     LoginService,
