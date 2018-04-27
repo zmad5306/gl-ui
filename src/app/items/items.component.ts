@@ -61,11 +61,14 @@ export class ItemsComponent implements OnInit {
   }
 
   deleteItem(item: Item): void {
-    this.itemService.deleteItem(item.itemId).subscribe(() => {
-      this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
-        this.items = items;
+    this.itemService.deleteItem(item.itemId).subscribe(
+      () => {},
+      () => {},
+      () => {
+        this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
+          this.items = items;
+        });
       });
-    });
   }
 
   commit(): void {
