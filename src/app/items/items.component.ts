@@ -46,6 +46,7 @@ export class ItemsComponent implements OnInit {
       });
       this.subscription = this.itemService.reloadItems$.subscribe((items: Array<Item>) => {
         this.items = items;
+        this.items = this.items.slice();
         this._ref.markForCheck();
       });
     });
@@ -72,7 +73,7 @@ export class ItemsComponent implements OnInit {
   }
 
   deleteItem(item: Item): void {
-    this.itemService.deleteItem(item.itemId).subscribe(data => {
+    this.itemService.deleteItem(item.itemId).subscribe(() => {
       this.itemService.itemChanged();
       this._ref.markForCheck();
     });
@@ -82,7 +83,11 @@ export class ItemsComponent implements OnInit {
   commit(): void {
     this.createItemForm.value.active = true;
     this.createItemForm.value.listId = this.listId;
-    this.itemService.saveItem(this.createItemForm.value).subscribe(data => console.log(data));
+    this.itemService.saveItem(this.createItemForm.value).subscribe(data => {
+      console.log(data)
+      this.itemService.itemChanged();
+      this._ref.markForCheck();
+    });
     this.createItemForm.reset();
   }
 }
