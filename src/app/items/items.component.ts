@@ -12,8 +12,7 @@ import {Subscription} from 'rxjs/Subscription';
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
 
