@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="list-group mb-3">
-  <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start pb-0">
+  <div *ngFor="let item of items; trackBy: trackByItems" class="list-group-item list-group-item-action flex-column align-items-start pb-0">
     <div class="d-flex justify-content-start mb-2 items">
       <span class="badge badge-pill badge-primary itemCount">{{item?.quantity}}</span>
       <p class="itemName">{{item?.name}}</p>

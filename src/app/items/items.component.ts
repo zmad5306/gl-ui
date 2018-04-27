@@ -7,6 +7,7 @@ import {List} from '../shared/list';
 import {DepartmentService} from '../shared/department.service';
 import {Department} from '../shared/department';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-items',
@@ -21,6 +22,7 @@ export class ItemsComponent implements OnInit {
   items: Array<Item>;
   departments: Array<Department>;
   createItemForm: FormGroup;
+  private subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -42,6 +44,10 @@ export class ItemsComponent implements OnInit {
         this.items = items;
         this._ref.markForCheck();
       });
+      this.subscription = this.itemService.reloadItems$.subscribe((items: Array<Item>) => {
+        this.items = items;
+        this._ref.markForCheck();
+      });
     });
     this.departmentService.getDepartments().subscribe((departments: Array<Department>) => {
       this.departments = departments;
@@ -54,12 +60,7 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-  refreshData(): void {
-    this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
-      this.items = items;
-      this._ref.markForCheck();
-    });
-  }
+  trackByItems(index: number, item: Item): string { return item.itemId; }
 
   deleteList(): void {
     this.listsService.deleteList(this.list).subscribe(data => console.log(data));
@@ -72,7 +73,8 @@ export class ItemsComponent implements OnInit {
 
   deleteItem(item: Item): void {
     this.itemService.deleteItem(item.itemId).subscribe(data => {
-      this.refreshData();
+      this.itemService.itemChanged();
+      this._ref.markForCheck();
     });
     console.log('working');
   }
