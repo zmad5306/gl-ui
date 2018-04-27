@@ -57,12 +57,12 @@ export class ItemsComponent implements OnInit {
   trackByItems(index: number, item: Item): string { return item.itemId; }
 
   deleteList(): void {
-    this.listsService.deleteList(this.list).subscribe(data => console.log(data));
-    this.router.navigate(['/lists']);
-  }
-
-  markInActive(): void {
-    console.log('working');
+    this.listsService.deleteList(this.list).subscribe(
+      () => {},
+      () => {},
+      () => {
+        this.router.navigate(['/lists']);
+      });
   }
 
   deleteItem(item: Item): void {
@@ -80,7 +80,7 @@ export class ItemsComponent implements OnInit {
   commit(): void {
     this.createItemForm.value.active = true;
     this.createItemForm.value.listId = this.listId;
-    this.itemService.saveItem(this.createItemForm.value).subscribe(data => {
+    this.itemService.saveItem(this.createItemForm.value).subscribe(() => {
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
         this.items = items;
         this._ref.markForCheck();
