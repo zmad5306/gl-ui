@@ -37,21 +37,16 @@ export class ItemsComponent implements OnInit {
       this.listId = params['listId'];
       this.listsService.getList(this.listId).subscribe((list: List) => {
         this.list = list;
-        this._ref.markForCheck();
       });
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
         this.items = items;
-        this._ref.markForCheck();
       });
       this.subscription = this.itemService.reloadItems$.subscribe((items: Array<Item>) => {
         this.items = items;
-        this.items = this.items.slice();
-        this._ref.markForCheck();
       });
     });
     this.departmentService.getDepartments().subscribe((departments: Array<Department>) => {
       this.departments = departments;
-      this._ref.markForCheck();
     });
     this.createItemForm = this.formBuilder.group({
       name: '',
@@ -76,16 +71,13 @@ export class ItemsComponent implements OnInit {
       this.itemService.itemChanged();
       this._ref.markForCheck();
     });
-    console.log('working');
   }
 
   commit(): void {
     this.createItemForm.value.active = true;
     this.createItemForm.value.listId = this.listId;
     this.itemService.saveItem(this.createItemForm.value).subscribe(data => {
-      console.log(data)
       this.itemService.itemChanged();
-      this._ref.markForCheck();
     });
     this.createItemForm.reset();
   }
