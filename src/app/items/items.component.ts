@@ -7,7 +7,7 @@ import {List} from '../shared/list';
 import {DepartmentService} from '../shared/department.service';
 import {Department} from '../shared/department';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Subscription} from "rxjs/Subscription";
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-items',

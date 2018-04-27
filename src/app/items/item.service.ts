@@ -5,7 +5,7 @@ import { Item } from '../shared/item';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/empty';
-import {ReplaySubject} from "rxjs/ReplaySubject";
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class ItemService {
