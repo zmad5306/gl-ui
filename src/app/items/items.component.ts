@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ItemService} from './item.service';
 import {Item} from '../shared/item';
@@ -7,7 +7,6 @@ import {List} from '../shared/list';
 import {DepartmentService} from '../shared/department.service';
 import {Department} from '../shared/department';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-items',
@@ -21,15 +20,13 @@ export class ItemsComponent implements OnInit {
   items: Array<Item>;
   departments: Array<Department>;
   createItemForm: FormGroup;
-  private subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private itemService: ItemService,
               private listsService: ListsService,
               private departmentService: DepartmentService,
-              private formBuilder: FormBuilder,
-              private _ref: ChangeDetectorRef) {
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -39,9 +36,6 @@ export class ItemsComponent implements OnInit {
         this.list = list;
       });
       this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
-        this.items = items;
-      });
-      this.subscription = this.itemService.reloadItems$.subscribe((items: Array<Item>) => {
         this.items = items;
       });
     });
@@ -68,8 +62,9 @@ export class ItemsComponent implements OnInit {
 
   deleteItem(item: Item): void {
     this.itemService.deleteItem(item.itemId).subscribe(() => {
-      this.itemService.itemChanged();
-      this._ref.markForCheck();
+      this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
+        this.items = items;
+      });
     });
   }
 
@@ -77,7 +72,9 @@ export class ItemsComponent implements OnInit {
     this.createItemForm.value.active = true;
     this.createItemForm.value.listId = this.listId;
     this.itemService.saveItem(this.createItemForm.value).subscribe(data => {
-      this.itemService.itemChanged();
+      this.itemService.getItems(this.listId).subscribe((items: Array<Item>) => {
+        this.items = items;
+      });
     });
     this.createItemForm.reset();
   }
