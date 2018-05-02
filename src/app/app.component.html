@@ -1,9 +1,10 @@
-<header class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">Grocery List</a>
+<header class="container-fluid sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
+    <h1 class="navbar-brand">Grocery List</h1>
+    <button class="btn btn-light" routerLink="/lists" *ngIf="onItems()">Back</button>
   </nav>
 </header>
-<main class="container-fluid">
+<main class="container">
 
 <router-outlet></router-outlet>
 

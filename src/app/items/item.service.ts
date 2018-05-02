@@ -11,6 +11,7 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
+
   getItems(listId: string): Observable<Array<Item>> {
     return this.http.get(`/api/item/${listId}`).map(data => data as Array<Item>);
   }
